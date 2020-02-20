@@ -1,0 +1,31 @@
+<h1 id="tableLabel">My Movie List</h1>
+
+<p *ngIf="!movies"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre(s)</th>
+      <th>Stars</th>
+      <th>Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of movies">
+      <td>{{ m.title }}</td>
+      <td>{{ m.genre }}</td>
+      <td>{{ m.stars }}</td>
+      <td>{{ m.review }}</td>
+    </tr>
+  </tbody>
+</table>
+Title
+<input [(ngModel)]="newEntry.title" name="title" />
+Genre
+<input [(ngModel)]="newEntry.genre" name="genre" />
+Stars
+<input type="number" [(ngModel)]="newEntry.stars" name="stars" />
+Review
+<input [(ngModel)]="newEntry.review" name="review" />
+<button (click)="save()">Save</button>

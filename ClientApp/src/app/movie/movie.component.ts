@@ -22,6 +22,7 @@ export class MovieComponent implements OnInit {
     await this.http.post<Movie[]>(this.baseUrl + 'movie', this.newEntry).toPromise();
     this.newEntry = {id: 0, title:'', genre:'', stars:0, review:''};
     this.movies = await this.http.get<Movie[]>(this.baseUrl + 'movie').toPromise();
+      
   }
 }
 interface Movie {
